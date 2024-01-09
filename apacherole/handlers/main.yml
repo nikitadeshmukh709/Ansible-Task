@@ -1,0 +1,3 @@
+# handlers file for apacherole
+- name: restart http
+  service: name=httpd state=restarted
