@@ -1,0 +1,16 @@
+# Creating file and folder using playbook
+- name: filedemo
+  hosts: localhost
+  connection: local
+  become: true
+ 
+  tasks:
+    - name: create file
+      file:
+        path: /home/ec2-user/myfile.txt
+        state: touch
+ 
+    - name: create directory
+      file:
+        path: /home/ec2-user/myfolder
+        state: directory
