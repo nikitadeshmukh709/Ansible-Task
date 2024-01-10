@@ -1,0 +1,19 @@
+# Creating file and folder using variable in playbook
+- name: filedemo
+  hosts: localhost
+  connection: local
+  become: true
+  vars:
+    mypath: /home/ec2-user/sample.txt
+    dirpath: /home/ec2-user/sample
+ 
+  tasks:
+    - name: create file
+      file:
+        path: "{{mypath}}"
+        state: touch
+ 
+    - name: create directory
+      file:
+        path: "{{dirpath}}"
+        state: directory
